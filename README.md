@@ -8,6 +8,8 @@ my docker template
     - and extract some source in order to apply them to other my systems.
 
 
+
+
 - docker run 
     - `-d` : background実行
 
@@ -20,7 +22,21 @@ my docker template
     - `-it`は？
         - [optionの説明がたくさん載っていた。](https://scrapbox.io/llminatoll/docker_run%E3%81%AE%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D)
 
+    - `docker run debian /bin/bash`をしてみたが...
+        ENTRYPOINTに置いた`entrypoint.sh`の実行がpermission deniedになった。
+        - 解決策として、権限付与をENTRYPOINT宣言する前に与えてあげることで解決した。
 
+        ```Dockerfile
+            RUN chmod +x /entrypoint.sh
+        ```
+
+
+- 例えば、debianコンテナ に立てた Flask web appが redis DBコンテナ にアクセスしようとする時、
+    - `--link`してdebianコンテナを起動すると、debianコンテナ側からアクセスするための情報が環境変数に書き込まれるとのこと。
+
+    - `docker run --link myredis:redis debian env`
+
+- linkはコンテナが置き換えられた場合、紐づいて更新されない。。と言う問題を抱えている。
 
 
 ### Volume作成, Mount
