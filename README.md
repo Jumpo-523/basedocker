@@ -49,3 +49,8 @@ or
 ```Linux
 docker run -v /data test/webserver
 ```
+
+### Flask FWを利用してdocker上で開発する。
+
+1. sourceをいじるたびにbuildしないといけないのか？
+    - →バインドマウントすればいい？
