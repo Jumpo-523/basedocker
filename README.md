@@ -54,3 +54,9 @@ docker run -v /data test/webserver
 
 1. sourceをいじるたびにbuildしないといけないのか？
     - →バインドマウントすればいい？
+
+
+【Flaskの本番環境構築に関して】
+- https://serip39.hatenablog.com/entry/2020/07/06/070000
+
+- chap 9でnginxのお話も出てくるから待つ。

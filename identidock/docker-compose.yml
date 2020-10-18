@@ -1,0 +1,14 @@
+
+identidock:
+  build: .
+  ports:
+    - "9090:9090"
+  environment: 
+    - ENV:DEV
+# ここが DockerfileのCOPYとは別のことしている？
+  volumes:
+    - ./app:/app
+
+
+dnmonster:
+  image: amouat/dnmonster:1.0
